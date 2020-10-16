@@ -1,0 +1,45 @@
+<?php
+
+function customurl_schema(){
+    $schema['customurls'] = array(
+        'description' => 'The table for manage short url',
+        'fields' => array(
+            'id' => array(
+                'description' => 'The primary identifier for url.',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'oldurl' => array(
+                'description' => 'Old url.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'newurl' => array(
+                'description' => 'New url.',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'restapiurl' => array(
+                'description' => 'Subscription date time(yyyy-mm-dd H:i:s).',
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'counter' => array(
+                'description' => 'Counter',
+                'type' => 'int',
+                'length' => 10,
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+        ),
+        'primary key' => array('id'),
+    );
+    return $schema;
+}

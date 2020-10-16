@@ -1,0 +1,17 @@
+customurl.viewurl:
+ path: '/view/{id}'
+ defaults:
+   _title: 'View page'
+   _controller: '\Drupal\customurl\Controller\ViewURLpageController::content'
+ requirements:
+    _permission: 'access content'
+ options:
+    no_cache: 'TRUE'
+
+customurl.count_url:
+ path: '/urlcounter'
+ defaults:
+   _title: 'Url counter'
+   _controller: '\Drupal\customurl\Controller\UrlCounterController::content'
+ requirements:
+   _permission: 'access content'

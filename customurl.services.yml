@@ -1,0 +1,3 @@
+services:
+  customurl.counter_service:
+    class: Drupal\customurl\CustomService

@@ -1,0 +1,6 @@
+customjs:
+  version: 1.x
+  header: true
+  js:
+    js/jquery.js: {}
+    js/custom.js: {}

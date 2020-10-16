@@ -1,0 +1,5 @@
+<?php
+function customurl_page_attachments_alter(&$page){
+  //$path = $current_path = \Drupal::service('path.current')->getPath();
+    $page['#attached']['library'][] = 'customurl/customjs';
+}
