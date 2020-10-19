@@ -6,6 +6,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use \Symfony\Component\HttpFoundation\RedirectResponse;
 
+
 /**
  * Defines ViewURLpageController class.
  */
