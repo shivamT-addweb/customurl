@@ -19,15 +19,12 @@ class ViewURLpageController extends ControllerBase {
    *   Return markup array.
    */
   public function content($id = NULL) {
-    $connection = \Drupal::database();
-    $query      = db_select('customurls', 'curl');
-    $query->condition('curl.newurl', $id)->fields('curl');
-    $result  = $query->execute();
-    $results = $result->fetchAssoc(\PDO::FETCH_OBJ);
+    $custom_service = \Drupal::service('customurl.counter_service');
+    $data = $custom_service-> selectUrl($id);
 
-    $oldurl = $results['oldurl'];
-    $newurl = $results['newurl'];
-    $urlid =  $results['id'];
+    $oldurl = $data['oldurl'];
+    $newurl = $data['newurl'];
+    $urlid =  $data['id'];
 
     $json_url = urlencode($oldurl);  
 

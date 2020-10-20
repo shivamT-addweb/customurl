@@ -34,9 +34,6 @@ class UrlCounterController extends ControllerBase
     public function content(Request $request)
     {
         $id = $request->request->get('id');
-        
-        // $our_service = \Drupal::service('customurl.counter_service');
-        // $data = $our_service-> updateounter($id);
 
         // Dispatch an event.
         $dispatcher = \Drupal::service('event_dispatcher');

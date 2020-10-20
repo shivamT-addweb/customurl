@@ -9,7 +9,8 @@ use Drupal\Core\Block\BlockBase;
  *
  * @Block(
  *   id = "custom_url_form_block",
- *   admin_label = @Translation("Custom URL form block")
+ *   admin_label = @Translation("Custom URL form block"),
+ *	 category = @Translation("Create Custom URL")
  * )
  */
 class CustomURLBlock extends BlockBase {
