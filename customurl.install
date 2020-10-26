@@ -25,13 +25,46 @@ function customurl_schema(){
                 'default' => '',
             ),
             'restapiurl' => array(
-                'description' => 'Subscription date time(yyyy-mm-dd H:i:s).',
+                'description' => 'URL in JSON format',
                 'type' => 'varchar',
                 'length' => 255,
                 'not null' => TRUE,
                 'default' => '',
             ),
             'counter' => array(
+                'description' => 'Counter',
+                'type' => 'int',
+                'length' => 10,
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+        ),
+        'primary key' => array('id'),
+    );
+    $schema['customurl_user_counter'] = array(
+        'description' => 'The table for manage counter for users',
+        'fields' => array(
+            'id' => array(
+                'description' => 'The primary identifier for url.',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'url_id' => array(
+                'description' => 'Url id',
+                'type' => 'int',
+                'length' => 10,
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+            'user_id' => array(
+                'description' => 'User id',
+                'type' => 'int',
+                'length' => 10,
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+            'user_counter' => array(
                 'description' => 'Counter',
                 'type' => 'int',
                 'length' => 10,
@@ -48,4 +81,5 @@ function customurl_schema(){
  */
 function customurl_uninstall() {
   \Drupal::database()->schema()->dropTable('customurls');
+  \Drupal::database()->schema()->dropTable('customurl_user_counter');
 }

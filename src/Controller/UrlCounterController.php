@@ -3,7 +3,6 @@
 namespace Drupal\customurl\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Database\Connection;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,20 +15,6 @@ use Drupal\customurl\CustomEvent;
  */
 class UrlCounterController extends ControllerBase
 {
-    /**
-     * @var \Drupal\Core\Database\Connection
-     */
-    private $injected_database;
-    
-    public function __construct(Connection $injected_database)
-    {
-        $this->injected_database = $injected_database;
-    }
-    
-    public static function create(ContainerInterface $container)
-    {
-        return new static($container->get('database'));
-    }
     
     public function content(Request $request)
     {

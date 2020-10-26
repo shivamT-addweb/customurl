@@ -12,6 +12,13 @@ use \Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class ViewURLpageController extends ControllerBase {
 
+    protected $custom_service;
+
+    public function __construct()
+    {
+        $this->custom_service = \Drupal::service('customurl.counter_service');
+    }
+
   /**
    * Display the markup.
    *
@@ -19,8 +26,7 @@ class ViewURLpageController extends ControllerBase {
    *   Return markup array.
    */
   public function content($id = NULL) {
-    $custom_service = \Drupal::service('customurl.counter_service');
-    $data = $custom_service-> selectUrl($id);
+    $data = $this->custom_service->selectUrl($id);
 
     $oldurl = $data['oldurl'];
     $newurl = $data['newurl'];

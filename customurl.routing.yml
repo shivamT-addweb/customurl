@@ -4,7 +4,7 @@ customurl.viewurl:
    _title: 'View page'
    _controller: '\Drupal\customurl\Controller\ViewURLpageController::content'
  requirements:
-    _permission: 'access content'
+    _role: 'authenticated'
  options:
     no_cache: 'TRUE'
 
@@ -14,4 +14,12 @@ customurl.count_url:
    _title: 'Url counter'
    _controller: '\Drupal\customurl\Controller\UrlCounterController::content'
  requirements:
-   _permission: 'access content'
+   _role: 'authenticated'
+
+customurl.url_list:
+ path: '/url/list'
+ defaults:
+   _title: 'Custom url list'
+   _controller: '\Drupal\customurl\Controller\URLListController::content'
+ requirements:
+   _role: 'authenticated'
